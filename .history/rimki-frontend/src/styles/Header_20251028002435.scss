@@ -1,0 +1,73 @@
+.header {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 5px 0 rgba(21, 24, 26, 0.1);
+
+  .logo-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* khoảng cách giữa logo và tên */
+    cursor: pointer;
+  }
+
+  .logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  .title {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+
+  .login-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #c62828;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .user-name {
+      font-weight: bold;
+    }
+  }
+
+  // Custom dropdown menu styling
+  :global {
+    .ant-dropdown {
+      .ant-dropdown-menu {
+        .ant-dropdown-menu-item {
+          color: #c62828;
+
+          &:hover {
+            background-color: rgba(198, 40, 40, 0.1);
+          }
+
+          .anticon {
+            color: #c62828;
+            margin-right: 8px;
+          }
+
+          span {
+            color: #c62828;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}

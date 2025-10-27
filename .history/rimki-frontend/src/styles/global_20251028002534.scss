@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.ant-card-head {
+    .ant-card-head-title {
+        color: #c3272b;
+        font-weight: bold;
+    }
+}
+
+.ant-btn-primary {
+  background: #c3272b;
+  border: none;
+  border-radius: 10px;
+  height: 42px;
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  // margin: 0;
+
+  &:hover {
+    background: #e34b50 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 65, 108, 0.3);
+  }
+}
+
+// User dropdown menu styling
+.user-dropdown-menu .ant-dropdown-menu-item {
+  color: #c62828 !important;
+  
+  &:hover {
+    background-color: rgba(198, 40, 40, 0.08) !important;
+  }
+  
+  .anticon {
+    color: #c62828 !important;
+  }
+  
+  span {
+    color: #c62828 !important;
+  }
+}

@@ -1,0 +1,152 @@
+.chatbot-section {
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+
+  .chatbot-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  /* ----- Tin nhắn ----- */
+  .chat-message {
+    display: flex;
+    width: 100%; /* QUAN TRỌNG: giúp max-width hoạt động đúng */
+    gap: 8px;
+
+    &.rimki {
+      justify-content: flex-start;
+      flex-direction: row; /* avatar trái, text phải */
+    }
+
+    &.user {
+      justify-content: flex-end;
+      // flex-direction: row-reverse; /* avatar phải, text trái */
+    }
+
+    .chat-text {
+      padding: 10px 14px;
+      border-radius: 10px;
+      max-width: 100%;
+      line-height: 1.5;
+      font-size: 14px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    &.rimki .chat-text {
+      background: #f1f3f6;
+      color: #222;
+      border-top-left-radius: 4px;
+    }
+
+    &.user .chat-text {
+      background: #c3272b;
+      color: white;
+      border-top-right-radius: 4px;
+    }
+
+    .chat-icon {
+      text-align: center;
+      flex-shrink: 0; /* Giúp avatar không đẩy text */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .chat-label {
+        font-size: 12px;
+        margin-top: 4px;
+        color: #555;
+      }
+    }
+  }
+
+  /* ----- Ô nhập tin nhắn ----- */
+  .chat-input {
+    position: relative;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid #ccc;
+    border-radius: 12px;
+    padding: 8px 48px 8px 12px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border: 1.5px solid #c3272b;
+    }
+
+    textarea.ant-input {
+      border: none !important;
+      box-shadow: none !important;
+      resize: none;
+      font-size: 14px;
+      width: 100%;
+      background: transparent;
+      color: #333;
+      padding: 6px 0;
+      overflow-y: auto;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    /* Nút gửi */
+    .ant-btn {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ffecec;
+      border: none;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 38px;
+      width: 38px;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: translateY(-50%) scale(1.05);
+      }
+
+      &:active {
+        transform: translateY(-50%) scale(0.95);
+      }
+
+      .ant-btn-primary {
+        margin: 0;
+      }
+    }
+  }
+
+  /* ----- Responsive ----- */
+  @media (max-width: 480px) {
+    .chat-input {
+      padding: 6px 42px 6px 10px;
+      border-radius: 10px;
+
+      textarea.ant-input {
+        font-size: 13px;
+      }
+
+      .ant-btn {
+        right: 6px;
+        height: 32px;
+        width: 32px;
+      }
+    }
+
+    .chat-message .chat-text {
+      max-width: 85%;
+      font-size: 13px;
+    }
+  }
+}
