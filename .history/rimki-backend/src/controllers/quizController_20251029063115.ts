@@ -58,12 +58,12 @@ export const createQuiz = async (req: Request, res: Response) => {
       quizData = {
         questions: [
           {
-            question: language === 'vi' ? 'Câu hỏi mẫu về bảo mật' :
-              language === 'ja' ? 'セキュリティに関するサンプル質問' :
-                'Sample security question',
+            question: language === 'vi' ? 'Câu hỏi mẫu về bảo mật' : 
+                      language === 'ja' ? 'セキュリティに関するサンプル質問' : 
+                      'Sample security question',
             options: language === 'vi' ? ['Đáp án A', 'Đáp án B', 'Đáp án C', 'Đáp án D'] :
-              language === 'ja' ? ['選択肢A', '選択肢B', '選択肢C', '選択肢D'] :
-                ['Option A', 'Option B', 'Option C', 'Option D'],
+                     language === 'ja' ? ['選択肢A', '選択肢B', '選択肢C', '選択肢D'] :
+                     ['Option A', 'Option B', 'Option C', 'Option D'],
             correct: 0
           }
         ]
@@ -79,14 +79,14 @@ export const createQuiz = async (req: Request, res: Response) => {
       });
 
       const forms = google.forms({ version: 'v1', auth });
-
+      
       const formRequest = {
         requestBody: {
           info: {
             title: title,
             description: language === 'vi' ? 'Bài quiz về bảo mật' :
-              language === 'ja' ? 'セキュリティクイズ' :
-                'Security Quiz'
+                        language === 'ja' ? 'セキュリティクイズ' :
+                        'Security Quiz'
           },
           items: quizData.questions.map((q: any, index: number) => ({
             questionItem: {
@@ -106,7 +106,7 @@ export const createQuiz = async (req: Request, res: Response) => {
 
       const form = await forms.forms.create(formRequest);
       googleFormLink = `https://docs.google.com/forms/d/${form.data.formId}/edit`;
-
+      
     } catch (error) {
       console.error('Failed to create Google Form:', error);
       // Fallback to local quiz creation

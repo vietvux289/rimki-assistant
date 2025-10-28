@@ -174,21 +174,6 @@ const SecureQuiz: React.FC = () => {
         <div className="quiz-section">
           <h3 className="quiz-heading">Let's test your knowledge!</h3>
 
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
-              Select Quiz Language:
-            </label>
-            <Radio.Group
-              value={selectedLanguage}
-              onChange={(e) => setSelectedLanguage(e.target.value)}
-              style={{ marginBottom: '16px' }}
-            >
-              <Radio value="vi">Tiếng Việt</Radio>
-              <Radio value="ja">日本語</Radio>
-              <Radio value="en">English</Radio>
-            </Radio.Group>
-          </div>
-
           <Button
             type="primary"
             icon={<EditOutlined />}

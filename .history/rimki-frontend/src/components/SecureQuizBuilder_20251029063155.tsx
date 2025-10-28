@@ -178,8 +178,8 @@ const SecureQuiz: React.FC = () => {
             <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
               Select Quiz Language:
             </label>
-            <Radio.Group
-              value={selectedLanguage}
+            <Radio.Group 
+              value={selectedLanguage} 
               onChange={(e) => setSelectedLanguage(e.target.value)}
               style={{ marginBottom: '16px' }}
             >

@@ -14,9 +14,8 @@ export const chatService = {
         },
       });
       return response.data;
-    } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "Failed to send message";
-      throw new Error(errorMessage);
+    } catch (error: any) {
+      throw new Error(error.response?.data?.message || error.message || "Failed to send message");
     }
   },
 };

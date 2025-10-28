@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Upload, Button, Input, Divider, Tooltip, App, Radio } from "antd";
+import { Card, Upload, Button, Input, Divider, Tooltip, App } from "antd";
 import {
   CopyOutlined,
   EditOutlined,
@@ -19,7 +19,6 @@ const SecureQuiz: React.FC = () => {
   const [showLink, setShowLink] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [creating, setCreating] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState<string>('vi');
 
   const uploadProps: UploadProps = {
     multiple: true,
@@ -93,7 +92,7 @@ const SecureQuiz: React.FC = () => {
 
     setCreating(true);
     try {
-      const response = await quizService.createQuiz("Security Policy Quiz", selectedLanguage);
+      const response = await quizService.createQuiz("Security Policy Quiz");
       setQuizLink(response.quiz.link);
       setShowLink(true);
       message.success({
@@ -173,21 +172,6 @@ const SecureQuiz: React.FC = () => {
 
         <div className="quiz-section">
           <h3 className="quiz-heading">Let's test your knowledge!</h3>
-
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
-              Select Quiz Language:
-            </label>
-            <Radio.Group
-              value={selectedLanguage}
-              onChange={(e) => setSelectedLanguage(e.target.value)}
-              style={{ marginBottom: '16px' }}
-            >
-              <Radio value="vi">Tiếng Việt</Radio>
-              <Radio value="ja">日本語</Radio>
-              <Radio value="en">English</Radio>
-            </Radio.Group>
-          </div>
 
           <Button
             type="primary"

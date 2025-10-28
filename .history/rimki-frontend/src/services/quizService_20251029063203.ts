@@ -35,9 +35,8 @@ export const quizService = {
         language,
       });
       return response;
-    } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "Failed to create quiz";
-      throw new Error(errorMessage);
+    } catch (error: any) {
+      throw new Error(error.message || "Failed to create quiz");
     }
   },
 
@@ -45,9 +44,8 @@ export const quizService = {
     try {
       const response = await axiosInstance.get("/quiz/list");
       return response;
-    } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "Failed to get quizzes";
-      throw new Error(errorMessage);
+    } catch (error: any) {
+      throw new Error(error.message || "Failed to get quizzes");
     }
   },
 };
